@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {ReactTest} from "./react-component";
+
+console.log(ReactTest);
 
 @Component({
   selector: 'app-root',

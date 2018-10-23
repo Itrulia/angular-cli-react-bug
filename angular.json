@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "@itrulia/test-library": {
+      "root": "projects/itrulia/test-library",
+      "sourceRoot": "projects/itrulia/test-library/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/itrulia/test-library/tsconfig.lib.json",
+            "project": "projects/itrulia/test-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/itrulia/test-library/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/itrulia/test-library/src/test.ts",
+            "tsConfig": "projects/itrulia/test-library/tsconfig.spec.json",
+            "karmaConfig": "projects/itrulia/test-library/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/itrulia/test-library/tsconfig.lib.json",
+              "projects/itrulia/test-library/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "react-angular-bug"
